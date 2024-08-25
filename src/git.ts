@@ -32,7 +32,7 @@ const Git = {
 
   getCommit: async ( cwd: string ): Promise<string> => {
 
-    return Git.exec ( cwd, ['rev-parse', 'HEAD'] );
+    return Git.exec ( cwd, ['rev-parse', 'main'] );
 
   },
 

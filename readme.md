@@ -1,7 +1,7 @@
 # Open in GitHub
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/fabiospampinato/vscode-open-in-github/master/resources/logo.png" width="128" alt="Logo">
+  <img src="https://raw.githubusercontent.com/davidrunger/vscode-open-in-github/master/resources/logo.png" width="128" alt="Logo">
 </p>
 
 Open the current project or file in github.com.
@@ -10,11 +10,13 @@ There are many other extensions for doing this, but they either didn't work well
 
 ## Install
 
-Follow the instructions in the [Marketplace](https://marketplace.visualstudio.com/items?itemName=fabiospampinato.vscode-open-in-github), or run the following in the command palette:
-
-```shell
-ext install fabiospampinato.vscode-open-in-github
-```
+1. Clone this repo
+1. `npm install` (don't try to use `pnpm`; it will break later steps)
+1. `pnpm add -g @vscode/vsce`
+1. `rm -f *.vsix`
+1. `vsce package`
+1. `code --install-extension "$(ls *.vsix)"`
+1. You're done!
 
 ## Usage
 
