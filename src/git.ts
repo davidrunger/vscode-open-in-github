@@ -32,7 +32,10 @@ const Git = {
 
   getCommit: async ( cwd: string ): Promise<string> => {
 
-    return Git.exec ( cwd, ['rev-parse', 'main'] );
+    const {stdout} = await exec ( 'main-branch', [], { cwd, stdio: 'pipe' } );
+    const primaryBranch = stdout.toString ().trim ();
+
+    return Git.exec ( cwd, ['rev-parse', primaryBranch] );
 
   },
 
