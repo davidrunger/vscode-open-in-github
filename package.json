@@ -162,11 +162,11 @@
     "vscode-extras": "^1.8.1"
   },
   "devDependencies": {
-    "@types/node": "^18.19.79",
+    "@types/node": "^22.13.9",
     "@types/vscode": "^1.97.0",
-    "esbuild": "0.20.1",
+    "esbuild": "0.25.0",
     "scex": "^1.1.0",
-    "tsex": "^3.2.1",
+    "tsex": "^4.0.2",
     "typescript": "^5.8.2"
   }
 }
