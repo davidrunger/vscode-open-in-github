@@ -87,7 +87,8 @@ const URL = {
     branch = encodeURIComponent ( branch );
     filePath = encodeURIComponent ( filePath ).replace ( /%2F/g, '/' );
 
-    const url = [repoUrl, page, branch, commit, filePath, lines].filter ( Boolean ).join ( '/' );
+    const urlWithoutLines = [repoUrl, page, branch, commit, filePath].filter ( Boolean ).join ( '/' );
+    const url = `${urlWithoutLines}${lines}`
 
     return url;
 
