@@ -11,7 +11,7 @@ There are many other extensions for doing this, but they either didn't work well
 ## Install
 
 1. Clone this repo
-1. `npm install` (don't try to use `pnpm`; it will break later steps)
+1. `npm install --prefer-dedupe` (don't try to use `pnpm`; it will break later steps)
 1. `pnpm add -g @vscode/vsce`
 1. `rm -f *.vsix`
 1. `vsce package`
