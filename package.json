@@ -134,10 +134,10 @@
     ]
   },
   "scripts": {
-    "bundle:dev": "tsex bundle --external vscode --format cjs --platform node --no-declare",
-    "bundle:prod": "tsex bundle --external vscode --format cjs --platform node --minify",
-    "clean": "tsex clean",
-    "compile": "tsex compile",
+    "bundle:dev": "npm run clean && esbuild src/index.ts --bundle --external:vscode --format=cjs --platform=node --outfile=dist/index.js",
+    "bundle:prod": "npm run clean && tsc --noEmit && esbuild src/index.ts --bundle --external:vscode --format=cjs --platform=node --minify --outfile=dist/index.js",
+    "clean": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"",
+    "compile": "tsc --outDir dist",
     "debug": "code --extensionDevelopmentPath $PWD --inspect-extensions 9222",
     "package": "vsce package",
     "prepublishOnly": "scex -bs clean bundle:prod",
@@ -162,12 +162,11 @@
     "vscode-extras": "^1.8.1"
   },
   "devDependencies": {
-    "@types/node": "^22.13.9",
+    "@types/node": "^26.6.2",
     "@types/vscode": "^1.97.0",
     "esbuild": "0.25.0",
     "scex": "^1.1.0",
-    "tsex": "^4.0.2",
-    "typescript": "^5.8.2"
+    "typescript": "^6.0.3"
   },
   "allowScripts": {
     "esbuild@0.25.0": true
