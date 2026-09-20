@@ -166,7 +166,7 @@
     "@types/vscode": "^1.97.0",
     "esbuild": "0.25.0",
     "scex": "^1.1.0",
-    "typescript": "^6.0.3"
+    "typescript": "^7.0.2"
   },
   "allowScripts": {
     "esbuild@0.25.0": true
