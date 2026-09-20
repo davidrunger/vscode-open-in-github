@@ -134,16 +134,18 @@
     ]
   },
   "scripts": {
-    "bundle:dev": "npm run clean && esbuild src/index.ts --bundle --external:vscode --format=cjs --platform=node --outfile=dist/index.js",
-    "bundle:prod": "npm run clean && tsc --noEmit && esbuild src/index.ts --bundle --external:vscode --format=cjs --platform=node --minify --outfile=dist/index.js",
+    "build": "pnpm run bundle:prod && pnpm run package",
+    "bundle:dev": "pnpm run clean && esbuild src/index.ts --bundle --external:vscode --format=cjs --platform=node --outfile=dist/index.js",
+    "bundle:prod": "pnpm run clean && pnpm run typescript && pnpm run esbuild:minify",
     "clean": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"",
     "compile": "tsc --outDir dist",
     "debug": "code --extensionDevelopmentPath $PWD --inspect-extensions 9222",
-    "package": "vsce package",
-    "prepublishOnly": "scex -bs clean bundle:prod",
-    "vscode:prepublish": "scex -bs clean bundle:prod",
+    "esbuild:minify": "esbuild src/index.ts --bundle --external:vscode --format=cjs --platform=node --minify --outfile=dist/index.js",
+    "package": "vsce package --no-dependencies",
+    "prepublish": "scex -bs clean bundle:prod",
     "dev": "scex -bs bundle:dev debug",
-    "prod": "scex -bs bundle:prod debug"
+    "prod": "scex -bs bundle:prod debug",
+    "typescript": "tsc --noEmit"
   },
   "categories": [
     "Other"
@@ -164,11 +166,9 @@
   "devDependencies": {
     "@types/node": "^26.6.2",
     "@types/vscode": "^1.97.0",
+    "@vscode/vsce": "^4.0.0",
     "esbuild": "0.28.2",
     "scex": "^1.1.0",
     "typescript": "^7.0.2"
-  },
-  "allowScripts": {
-    "esbuild@0.28.2": true
   }
 }
