@@ -164,11 +164,11 @@
   "devDependencies": {
     "@types/node": "^26.6.2",
     "@types/vscode": "^1.97.0",
-    "esbuild": "0.25.0",
+    "esbuild": "0.28.2",
     "scex": "^1.1.0",
     "typescript": "^7.0.2"
   },
   "allowScripts": {
-    "esbuild@0.25.0": true
+    "esbuild@0.28.2": true
   }
 }
